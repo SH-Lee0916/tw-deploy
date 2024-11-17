@@ -1,0 +1,6 @@
+[submodule "travelweather"]
+	path = travelweather
+	url = https://github.com/roselidev/travelweather.git
+[submodule "travelweather-client"]
+	path = travelweather-client
+	url = https://github.com/roselidev/travelweather-client.git
