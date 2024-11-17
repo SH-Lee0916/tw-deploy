@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  proxy:
+    image: nginx
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - front
+      - back
+    container_name: tw_proxy
+    ports:
+      - 80:80
+    
+  front:
+    build:
+      context: ./travelweather-client
+    image: tw-front:latest
+    container_name: tw_front
+    expose:
+      - 3000
+
+  back:
+    build:
+      context: ./travelweather
+    image: tw-back:latest
+    container_name: tw_back
+    expose:
+      - 8000
